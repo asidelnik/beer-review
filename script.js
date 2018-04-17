@@ -1,5 +1,5 @@
-
 let beers = [];
+let sorted = false;
 
 function addBeer(name, category, rate) {
     let beerObj = {};
@@ -18,10 +18,7 @@ function renderBeers() {
         " - " + beers[ind].category + 
         " - " + beers[ind].rate + " " +
         "<span class='fa fa-star yellowStar'></span>" +
-        "</li>");
-
-        
-        
+        "</li>");  
     }
 }
 
@@ -30,54 +27,21 @@ $('.post-beer').on('click', function () {
     let beerCategory = $('.category-input').val();
     let selectRate = $('.select-rate').val();
     
-    
     addBeer(beerName, beerCategory, selectRate);
     renderBeers();
 });
 
-
-// unicode star - u+2b50  "&#xf005" +
-
-
-/*  Improve
-    1. append categories as <li>
-    2. append sub <li> to main categories
-    Nested Html List
-    <ul>
-  <li>Coffee</li>
-  <li>Tea
-    <ul>
-    <li>Black tea</li>
-    <li>Green tea</li>
-    </ul>
-  </li>
-  <li>Milk</li>
-</ul>
-
-*/
-
-
-
-/*
-function addBeer(name, category) {
-    let beerObj = {
-        name,
-        category,
-        pushIt : function() {
-            beers.push(this);
-        }
+$('.sort-by-rate').on('click', function () {
+    if(!sorted) {
+        beers.sort(function(a, b){
+            return a.rate - b.rate
+        })
+        sorted = true;
+    } else {
+        beers.sort(function(a, b){
+            return b.rate - a.rate
+        })
+        sorted = false;
     }
-}
-*/
-
-
-
-
-
-/*  Questions
-    1. can I pass a global function1 local variable as an argument to invoke another global function?
-    2. Correct order - global array on top, middle, bottom?
-    3. Creating an object with properties vs creating an object & pushing properties into it
-        The first returned the object as undefined
-    4. Why use & get inputs by class rather than id?
-*/
+    renderBeers();
+});

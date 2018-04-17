@@ -1,0 +1,30 @@
+Questions
+    1. can I pass a global function1 local variable as an argument to invoke another global function?
+    2. Correct order - global array on top, middle, bottom?
+    3. Creating an object with properties vs creating an object & pushing properties into it
+        The first returned the object as undefined
+    4. Why use & get inputs by class rather than id?
+
+
+
+Font Awesome Icons
+https://www.w3schools.com/icons/fontawesome_icons_intro.asp
+// unicode star - u+2b50  "&#xf005" +
+<span style="font-size:24px" class="fa fa-star"></span>
+
+
+
+Ex 5
+    1. Add button
+    2. onClick - sort beers on page by rating       
+    3. on second click, reverse the order
+
+
+
+Sorting array of objects
+by employee age / key number value
+
+employees.sort(function(a, b){
+    return a.age-b.age
+})
+http://www.javascriptkit.com/javatutors/arraysort2.shtml
